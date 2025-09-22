@@ -1,0 +1,84 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  PYTHON_VERSION: "3.11"
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install ruff
+        run: pip install ruff
+
+      - name: Lint demo scripts
+        run: ruff check demo/ --ignore E501
+
+  demo-smoke-test:
+    name: Demo Smoke Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install dependencies
+        run: pip install pandas
+
+      - name: Run basic ETL query demo
+        run: python demo/examples/01_basic_query.py
+
+      - name: Run multi-table analysis demo
+        run: python demo/examples/02_multi_table_analysis.py
+
+  docs-check:
+    name: Documentation Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate README structure
+        run: |
+          python - << 'EOF'
+          import sys
+          content = open("README.md").read()
+          required = [
+              "## The Problem", "## The Solution", "## Architecture",
+              "## Evaluation Results", "## Technology Stack"
+          ]
+          missing = [s for s in required if s not in content]
+          if missing:
+              print(f"Missing sections: {missing}")
+              sys.exit(1)
+          print("✓ README structure valid")
+          EOF
+
+      - name: Check all doc files exist
+        run: |
+          python - << 'EOF'
+          import sys, os
+          required_docs = [
+              "docs/Architecture.md", "docs/BusinessCase.md",
+              "docs/UseCases.md", "docs/FAQ.md", "docs/FutureWork.md",
+              "ROADMAP.md", "SECURITY.md"
+          ]
+          missing = [f for f in required_docs if not os.path.exists(f)]
+          if missing:
+              print(f"Missing files: {missing}")
+              sys.exit(1)
+          print(f"✓ All {len(required_docs)} documentation files present")
+          EOF
