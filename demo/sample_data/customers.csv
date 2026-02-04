@@ -1,0 +1,10 @@
+customer_id,company_name,segment,country,region,acquisition_channel,account_manager
+CUST-004,Meridian Analytics Group,Enterprise,United States,AMER,direct,AM-02
+CUST-007,Nexus Data Solutions,Enterprise,United Kingdom,EMEA,direct,AM-04
+CUST-008,BlueRidge Systems,Mid-Market,United States,AMER,partner,AM-06
+CUST-012,Apex Cloud Corp,Enterprise,Germany,EMEA,direct,AM-04
+CUST-016,Pacific Rim Ventures,Mid-Market,Japan,APAC,reseller,AM-09
+CUST-019,Solaris Tech EMEA,Mid-Market,France,EMEA,direct,AM-04
+CUST-023,Vertex Analytics,Enterprise,Netherlands,EMEA,direct,AM-03
+CUST-027,Oceanic Data Ltd,SMB,Australia,APAC,partner,AM-08
+CUST-031,Summit Platforms,Mid-Market,Singapore,APAC,reseller,AM-09

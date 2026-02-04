@@ -1,0 +1,10 @@
+product_id,product_name,category,subcategory,unit_price,cost_price
+PROD-001,Enterprise Analytics Suite,Software,Analytics Platform,2400.00,480.00
+PROD-002,Stream Connector Pro,Software,Integration,160.00,32.00
+PROD-003,DataOps Accelerator,Software,DevOps,250.00,50.00
+PROD-005,Schema Navigator,Software,Data Management,330.00,66.00
+PROD-007,AI Insight Engine,Software,AI Platform,4800.00,960.00
+PROD-008,Compliance Monitor,Software,Governance,420.00,84.00
+PROD-010,Pipeline Orchestrator,Software,Orchestration,260.00,52.00
+PROD-011,Report Builder Cloud,Software,BI,160.25,32.05
+PROD-014,Training and Onboarding Bundle,Services,Professional Services,350.00,175.00
