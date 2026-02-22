@@ -6,6 +6,7 @@
 
 **Generative AI · Typed Planning · Deterministic Execution · Contract Validation**
 
+[![CI](https://github.com/houcem58/ConversaETL-Showcase/actions/workflows/ci.yml/badge.svg)](https://github.com/houcem58/ConversaETL-Showcase/actions/workflows/ci.yml)
 [![Research](https://img.shields.io/badge/Research-DSE%20Springer-orange)](docs/FAQ.md#research)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)](docs/Architecture.md)
