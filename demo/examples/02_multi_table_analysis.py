@@ -216,7 +216,7 @@ def run_demo() -> None:
     if missing:
         print(f"\n[STAGE 5 — VALIDATION]  CONTRACT FAIL — missing: {missing}")
         return
-    print(f"\n[STAGE 5 — VALIDATION]  CONTRACT PASS — all required columns present")
+    print("\n[STAGE 5 — VALIDATION]  CONTRACT PASS — all required columns present")
 
     # ── Output ────────────────────────────────────────────────────────────
     print("\n[OUTPUT — Validated ETL Result]")
