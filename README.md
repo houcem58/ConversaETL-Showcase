@@ -10,7 +10,7 @@
 [![Research](https://img.shields.io/badge/Research-DSE%20Springer-orange)](docs/FAQ.md#research)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)](docs/Architecture.md)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](demo/examples/)
+[![Python](https://img.shields.io/badge/Python-3.11%2B-blue)](demo/examples/)
 
 </div>
 
@@ -210,8 +210,8 @@ Kafka-backed event streaming enables real-time drift detection, operational
 monitoring, and windowed aggregate computation alongside batch ETL workflows.
 
 ### Container-First Deployment
-Full Docker and Docker Compose support for reproducible local deployment.
-The pipeline, benchmark, and dashboard components run within a single compose stack.
+Docker image published to GitHub Container Registry for reproducible local deployment.
+The showcase runs as a self-contained container without external service dependencies.
 
 ### Multi-Provider LLM Support
 The planning layer supports Groq (cloud), Ollama (local/offline), and any
@@ -265,7 +265,7 @@ overhead of onboarding new data sources.
 | Evaluation & Statistics | SciPy, scikit-learn, clustered bootstrap CI |
 | Streaming | Apache Kafka |
 | Visualization | Plotly, Dash, Gradio |
-| Infrastructure | Docker, Docker Compose |
+| Infrastructure | Docker, GitHub Container Registry |
 | Benchmark | ConversaBench (internal), Spider-ETL-mini (cross-schema extension) |
 
 ---
