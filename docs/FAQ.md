@@ -52,9 +52,10 @@ third-party integrations).
 
 **Q: Why isn't the full source code available?**
 
-ConversaETL is published at *Data Science and Engineering* (Springer, 2026).
-The full implementation — including the compiler stack, benchmark framework,
-evaluation engine, and reproducibility artifacts — remains in a private repository.
+ConversaETL is the subject of research currently under review at *Data Science
+and Engineering* (Springer). The full implementation — including the compiler stack,
+benchmark framework, evaluation engine, and reproducibility artifacts — remains in
+a private repository.
 
 This repository is a portfolio showcase demonstrating the architecture, engineering
 approach, and evaluation results of the project.
@@ -70,9 +71,9 @@ artifact policy. Contact houcem0508@gmail.com for access to the evaluation packa
 
 **Q: Is there a publication I can read?**
 
-The paper is published at *Data Science and Engineering* (Springer, 2026). Key
-results are summarized in the [README](../README.md) and [Business Case](BusinessCase.md).
-Contact houcem0508@gmail.com for the full paper.
+The manuscript is currently under review. Key results are summarized in the
+[README](../README.md) and [Business Case](BusinessCase.md). Contact
+houcem0508@gmail.com for details.
 
 ---
 
