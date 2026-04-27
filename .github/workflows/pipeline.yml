@@ -1,10 +1,14 @@
-name: CI
+name: Pipeline
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 env:
   PYTHON_VERSION: "3.11"
@@ -26,9 +30,10 @@ jobs:
       - name: Lint demo scripts
         run: ruff check demo/ --ignore E501
 
-  demo-smoke-test:
+  smoke-test:
     name: Demo Smoke Tests
     runs-on: ubuntu-latest
+    needs: lint
     steps:
       - uses: actions/checkout@v7
 
@@ -48,6 +53,7 @@ jobs:
   docs-check:
     name: Documentation Check
     runs-on: ubuntu-latest
+    needs: lint
     steps:
       - uses: actions/checkout@v7
 
@@ -64,7 +70,7 @@ jobs:
           if missing:
               print(f"Missing sections: {missing}")
               sys.exit(1)
-          print("✓ README structure valid")
+          print("OK README structure valid")
           EOF
 
       - name: Check all doc files exist
@@ -80,5 +86,40 @@ jobs:
           if missing:
               print(f"Missing files: {missing}")
               sys.exit(1)
-          print(f"✓ All {len(required_docs)} documentation files present")
+          print(f"OK All {len(required_docs)} documentation files present")
           EOF
+
+  publish:
+    name: Publish Docker Image
+    runs-on: ubuntu-latest
+    needs: [smoke-test, docs-check]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=raw,value=latest
+            type=sha,prefix=sha-,format=short
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
