@@ -211,3 +211,32 @@ ConversaETL is explicitly **not** positioned as:
 
 It is positioned as: a typed compilation approach to verifiable conversational ETL,
 evaluated under controlled benchmark conditions with frozen reproducibility artifacts.
+
+---
+
+## Component Diagram
+
+```mermaid
+flowchart TD
+    NLR["Natural Language Request\ne.g. 'total revenue by region last quarter'"]
+    SP["Schema Profiler\ncolumn types · cardinality · null rates"]
+    LLM["LLM Planner\nstructured typed plan"]
+    PC["Plan Critic + Normalizer\nstructural validation · alias resolution"]
+    SR["Semantic Resolver\nbind metric/entity/dim to schema columns"]
+    CC["Compiler Stack\n7 families — cleaning · joins · transform\ndate · insight · quality · discovery"]
+    CV["Contract Validator\nschema · quality · evidence contracts"]
+    OUT[("Accepted Result\naudit trace · SHAP attribution")]
+    REJ[("Rejection Record\nstructured failure reason")]
+    CB["ConversaBench\nF1 evaluation · ablation · stability"]
+
+    NLR --> LLM
+    SP --> LLM
+    LLM --> PC
+    PC -->|valid| SR
+    PC -->|invalid| REJ
+    SR --> CC
+    CC --> CV
+    CV -->|pass| OUT
+    CV -->|fail| REJ
+    OUT --> CB
+```
