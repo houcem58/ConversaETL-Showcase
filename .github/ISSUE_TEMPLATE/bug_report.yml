@@ -1,0 +1,62 @@
+name: Bug Report
+description: Report a pipeline failure, incorrect transformation, or contract violation
+title: "[BUG] "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected stage
+      options:
+        - Stage 1 — LLM Planner
+        - Stage 2 — Plan Critic / Normalizer
+        - Stage 3 — Semantic Resolver
+        - Stage 4 — Compiler Stack
+        - Stage 5 — Contract Validator
+        - ConversaBench evaluation framework
+        - Demo scripts
+        - Documentation
+    validations:
+      required: true
+
+  - type: dropdown
+    id: task-family
+    attributes:
+      label: Task family (if known)
+      options:
+        - Aggregate
+        - Date wrangling
+        - Cleaning
+        - Join
+        - Transform
+        - Data quality
+        - Grounded insight
+        - Not task-family-specific
+
+  - type: textarea
+    id: request
+    attributes:
+      label: Natural language request that triggered the issue
+      placeholder: "What are total sales by product category in Q2 2024?"
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened? What did you expect?
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Actual output or error
+      render: shell
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Before submitting
+      options:
+        - label: I confirmed the demo data files exist (`demo/sample_data/`)
+        - label: I ran the demo script to confirm the issue is reproducible

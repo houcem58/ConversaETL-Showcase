@@ -1,0 +1,2 @@
+Makefile linguist-detectable=false
+*.md linguist-documentation=true
