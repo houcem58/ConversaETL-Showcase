@@ -21,7 +21,7 @@
 > compilation engine that enforces output contracts before any result is accepted.
 >
 > **This repository is a portfolio showcase.** The full implementation is private.
-> Published at *Data Science and Engineering* (Springer, 2026).
+> Research manuscript under review at *Data Science and Engineering* (Springer).
 
 ---
 
