@@ -7,7 +7,7 @@
 **Generative AI · Typed Planning · Deterministic Execution · Contract Validation**
 
 [![Pipeline](https://github.com/houcem58/ConversaETL-Showcase/actions/workflows/pipeline.yml/badge.svg)](https://github.com/houcem58/ConversaETL-Showcase/actions/workflows/pipeline.yml)
-[![Research](https://img.shields.io/badge/Research-DSE%20Springer-orange)](docs/FAQ.md#research)
+[![Research](https://img.shields.io/badge/Research-BDMA%20Tsinghua%20%E2%80%94%20Under%20Review-orange)](docs/FAQ.md#research)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)](docs/Architecture.md)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue)](demo/examples/)
@@ -21,7 +21,7 @@
 > compilation engine that enforces output contracts before any result is accepted.
 >
 > **This repository is a portfolio showcase.** The full implementation is private.
-> Research manuscript under review at *Data Science and Engineering* (Springer).
+> Research manuscript under review at *Big Data Mining and Analytics* (Tsinghua University / IEEE).
 
 ---
 
@@ -323,7 +323,7 @@ interfaces, data engineering, and LLM-assisted compilation.
 > *ConversaETL and ConversaBench: Typed Planning and Deterministic Compilation
 > for Verifiable Conversational ETL*
 >
-> Under review at **Data Science and Engineering** (Springer).
+> Under review at **Big Data Mining and Analytics** (Tsinghua University / IEEE).
 
 ---
 
