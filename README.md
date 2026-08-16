@@ -154,7 +154,8 @@ before being returned. Invalid outputs are blocked — not repaired silently.
 
 ### Streaming Pipeline Support
 A Kafka-backed streaming component enables operational monitoring, drift detection,
-and windowed feature evaluation for real-time ETL scenarios.
+and windowed feature evaluation for real-time ETL scenarios. Controlled stress
+validation: precision 0.750, recall 0.720, F₁ 0.735, FPR 0.171.
 
 ### Reproducible Benchmark — ConversaBench
 A full evaluation framework with task-family labels, gold references, repeated
@@ -214,9 +215,10 @@ Docker image published to GitHub Container Registry for reproducible local deplo
 The showcase runs as a self-contained container without external service dependencies.
 
 ### Multi-Provider LLM Support
-The planning layer supports Groq (cloud), Ollama (local/offline), and any
-OpenAI-compatible provider — selectable via environment configuration with no
-code changes.
+The planning layer uses a custom `LLMBackend` abstraction — no framework dependency
+(no LangChain, no RAG pipeline). Groq (cloud, llama-3.3-70b-versatile),
+Ollama (local/offline, validated with qwen2.5-coder:7b), and any OpenAI-compatible
+provider are selectable via environment configuration with no code changes.
 
 ### Governance and Auditability
 Contract validation, audit traces, and structured failure reasons make every
