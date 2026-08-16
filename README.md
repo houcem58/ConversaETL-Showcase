@@ -323,7 +323,7 @@ interfaces, data engineering, and LLM-assisted compilation.
 > *ConversaETL and ConversaBench: Typed Planning and Deterministic Compilation
 > for Verifiable Conversational ETL*
 >
-> Published at **Data Science and Engineering** (Springer, 2026).
+> Under review at **Data Science and Engineering** (Springer).
 
 ---
 
